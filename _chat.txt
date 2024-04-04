@@ -1,0 +1,273 @@
+[01/03/23, 9:20:47 AM] Asutosh Kiit: ‎Messages and calls are end-to-end encrypted. No one outside of this chat, not even WhatsApp, can read or listen to them.
+[01/03/23, 9:20:47 AM] Asutosh Kiit: Hey...
+[01/03/23, 9:20:59 AM] Asutosh Kiit: Rishikesh hai class mai????
+[01/03/23, 9:26:57 AM] Harshita Arohan: Hello
+[01/03/23, 9:27:05 AM] Harshita Arohan: Nyy woh toh ny aaya h
+[01/03/23, 9:31:44 AM] Asutosh Kiit: 🙂🙂🙂🙂
+[01/03/23, 9:31:48 AM] Asutosh Kiit: Huhhhhhhhhh
+[01/03/23, 9:32:09 AM] Harshita Arohan: Kya hua😂
+[01/03/23, 9:32:42 AM] Asutosh Kiit: Mera COA note uske paas hai..... Subah dega bola....ab soo rha hai harami
+[01/03/23, 9:32:50 AM] Asutosh Kiit: Ma'am idhr test le rhi hai 🙂
+[01/03/23, 9:32:53 AM] Harshita Arohan: 😂😂😂
+[01/03/23, 9:32:59 AM] Harshita Arohan: Jaaa maaro usko😂
+[01/03/23, 9:33:03 AM] Asutosh Kiit: 🙂
+[29/08/23, 8:05:27 PM] Asutosh Kiit: Tumhare phone mai hai kya
+[29/08/23, 8:05:29 PM] Asutosh Kiit: Photos
+[29/08/23, 8:05:31 PM] Asutosh Kiit: 👀
+[29/08/23, 8:22:03 PM] Harshita Arohan: ‎You deleted this message.
+[29/08/23, 8:22:03 PM] Harshita Arohan: ‎You deleted this message.
+[29/08/23, 8:22:04 PM] Harshita Arohan: ‎You deleted this message.
+[29/08/23, 8:22:15 PM] Asutosh Kiit: Suno
+[29/08/23, 8:22:19 PM] Asutosh Kiit: Document krke bhejte hai
+[29/08/23, 8:22:21 PM] Asutosh Kiit: 🙂
+[29/08/23, 8:22:23 PM] Harshita Arohan: 😂😂😂
+[29/08/23, 8:22:33 PM] Asutosh Kiit: Dlt
+[29/08/23, 8:22:37 PM] Asutosh Kiit: And resend bro
+[29/08/23, 8:22:39 PM] Asutosh Kiit: 🙂
+[29/08/23, 8:22:47 PM] Harshita Arohan: Kr ri
+‎[29/08/23, 8:23:33 PM] Harshita Arohan: IMG_8549.heic ‎document omitted
+‎[29/08/23, 8:23:33 PM] Harshita Arohan: IMG_8547.heic ‎document omitted
+‎[29/08/23, 8:23:33 PM] Harshita Arohan: IMG_8551.heic ‎document omitted
+‎[18/09/23, 12:24:28 AM] Harshita Arohan: ‎image omitted
+[18/09/23, 1:07:36 AM] Asutosh Kiit: To understand the proofs of admissibility and consistency for heuristics in the context of A* search, let's define some terms:
+
+- **h(n)**: The heuristic estimate of the cost from node n to the goal.
+- **h*(n)**: The true cost from node n to the goal (the actual cost).
+- **c(n, a, n')**: The cost of taking action a from node n to reach node n'.
+- **g(n)**: The cost of the path from the start node to node n.
+
+Now, let's proceed with the proofs:
+
+### Proof of Admissibility:
+
+A heuristic is admissible if it never overestimates the true cost to reach the goal from any node. Mathematically, for all nodes n:
+
+**h(n) ≤ h*(n)**
+
+The proof is by contradiction. Suppose there exists a node n for which the heuristic h(n) overestimates the true cost, i.e.,
+
+**h(n) > h*(n)**
+
+Let's consider a node n' that is on the optimal path to the goal. By definition, the true cost from n to the goal is:
+
+**g(n) + h*(n) = g(n')**
+
+Now, let's consider using the heuristic h(n) at node n:
+
+**g(n) + h(n) > g(n')**
+
+Since h(n) overestimates h*(n), this implies:
+
+**g(n) + h(n) > g(n') ≥ g(n) + h*(n)**
+
+However, the last inequality contradicts the fact that node n' is on the optimal path, as it implies there is a better path through node n with a cost less than or equal to the optimal path. This contradiction shows that the assumption **h(n) > h*(n)** cannot hold true, and therefore, the heuristic h(n) must be admissible.
+
+### Proof of Consistency:
+
+A heuristic is consistent (or obeys the triangular inequality) if the estimated cost of reaching the goal from any node n is not greater than the cost of getting from n to a neighboring node n' plus the estimated cost from n' to the goal. Mathematically, for all nodes n and n' connected by an action a:
+
+**h(n) ≤ c(n, a, n') + h(n')**
+
+The proof is similar to the proof of admissibility. Again, we assume the contrary, that there exists a node n and n' connected by an action a for which the heuristic h(n) does not satisfy the triangular inequality:
+
+**h(n) > c(n, a, n') + h(n')**
+
+Now, let's consider the following:
+
+- **g(n)**: The cost of the path from the start node to node n.
+- **g(n')**: The cost of the path from the start node to node n'.
+
+Using these definitions, we have:
+
+**g(n) + h(n) > g(n') + c(n, a, n') + h(n')**
+
+Now, consider the path from the start node to n' through action a:
+
+**g(n') + c(n, a, n')**
+
+This is the cost of reaching n' directly from the start node through action a. Since we assume that h(n) overestimates this cost, we have:
+
+**g(n') + c(n, a, n') ≤ g(n) + h(n)**
+
+Combining the above inequalities, we get:
+
+**g(n') + c(n, a, n') ≤ g(n) + h(n) < g(n') + c(n, a, n') + h(n')**
+
+This inequality is a contradiction because it implies that the estimated cost of reaching the goal from n is greater than the cost of reaching the goal through n' and action a, plus the estimated cost from n' to the goal. Therefore, the assumption that h(n) does not satisfy the triangular inequality is false, and the heuristic h(n) is consistent.
+[08/01/24, 11:05:02 PM] Asutosh Kiit: Ooo guruuuu
+[08/01/24, 11:05:11 PM] Asutosh Kiit: Chal rhe ho na spring fest 👀
+[09/01/24, 12:12:44 AM] Harshita Arohan: Naa ji I don’t think so
+[09/01/24, 12:28:39 AM] Asutosh Kiit: 👀
+[21/01/24, 9:26:22 PM] Harshita Arohan: SF46777
+[21/01/24, 9:26:34 PM] Asutosh Kiit: Aye
+[21/01/24, 9:26:37 PM] Harshita Arohan: Sfid for spring fest😅
+[21/01/24, 9:26:42 PM] Asutosh Kiit: 🙆🏻‍♂️
+[21/01/24, 9:26:46 PM] Asutosh Kiit: Confirm ho gaya ka
+[21/01/24, 9:27:03 PM] Harshita Arohan: Haa I am coming😌
+[21/01/24, 9:27:09 PM] Asutosh Kiit: 😎
+[21/01/24, 9:27:10 PM] Asutosh Kiit: Ok
+[21/01/24, 9:27:18 PM] Asutosh Kiit: Form bharna hai ruko
+[21/01/24, 9:27:30 PM] Harshita Arohan: Okay
+[21/01/24, 9:56:50 PM] Asutosh Kiit: Abhi pay mat kro
+[21/01/24, 9:56:52 PM] Asutosh Kiit: Accomodation ka
+[21/01/24, 9:56:56 PM] Asutosh Kiit: Ruko
+[21/01/24, 10:16:32 PM] Harshita Arohan: Okay bata dena
+[21/01/24, 10:16:40 PM] Asutosh Kiit: Hanji
+[21/01/24, 10:16:44 PM] Asutosh Kiit: Tum aa rhi ho
+[21/01/24, 10:16:49 PM] Asutosh Kiit: Itna confirm hai
+[21/01/24, 10:16:56 PM] Asutosh Kiit: Tickets hum dekh lenge
+[21/01/24, 10:16:58 PM] Asutosh Kiit: Tension not
+[21/01/24, 10:17:00 PM] Asutosh Kiit: 😎
+[21/01/24, 10:17:08 PM] Asutosh Kiit: Sab waiting list hai
+[21/01/24, 10:17:09 PM] Harshita Arohan: Dhanyawad jii
+[21/01/24, 10:17:12 PM] Asutosh Kiit: Tatkal try karenge
+[21/01/24, 10:17:14 PM] Harshita Arohan: 🙃
+[21/01/24, 10:17:16 PM] Asutosh Kiit: 25th ko
+[21/01/24, 10:17:19 PM] Harshita Arohan: Acchaaaa
+[21/01/24, 10:17:23 PM] Asutosh Kiit: Yo
+[21/01/24, 10:17:46 PM] Harshita Arohan: Warna hmko bhej do hm krwa denge tickets confirm
+[21/01/24, 10:17:48 PM] Harshita Arohan: Papa ko bol ke
+[21/01/24, 10:19:11 PM] Asutosh Kiit: Hein
+[21/01/24, 10:19:12 PM] Asutosh Kiit: Kaise
+[21/01/24, 10:19:12 PM] Asutosh Kiit: 👀
+[21/01/24, 10:19:16 PM] Asutosh Kiit: Hoga kya aisa
+[21/01/24, 10:19:17 PM] Asutosh Kiit: ?
+[21/01/24, 10:19:26 PM] Asutosh Kiit: 66 waiting list hai... Jane ka
+[21/01/24, 10:20:43 PM] Harshita Arohan: Bhej do try krwate h
+[21/01/24, 10:20:46 PM] Asutosh Kiit: Aane ka 5 hai
+[21/01/24, 10:20:50 PM] Asutosh Kiit: Yeh kar de????
+[21/01/24, 10:20:52 PM] Asutosh Kiit: Pehele
+[21/01/24, 10:21:00 PM] Asutosh Kiit: Jane ka dekh lenge kaise bhi ho jayega
+[21/01/24, 10:21:06 PM] Harshita Arohan: Dono bhej do
+[21/01/24, 10:21:12 PM] Asutosh Kiit: 👀
+[21/01/24, 10:21:19 PM] Asutosh Kiit: Kar du?
+[21/01/24, 10:21:19 PM] Asutosh Kiit: Fir
+[21/01/24, 10:21:28 PM] Harshita Arohan: Abhi tk ticket ny hua h?
+[21/01/24, 10:21:37 PM] Asutosh Kiit: 👀
+[21/01/24, 10:21:42 PM] Asutosh Kiit: Tumhara kaise hoga
+[21/01/24, 10:21:47 PM] Asutosh Kiit: Abhi bole mekko
+[21/01/24, 10:21:47 PM] Asutosh Kiit: 👀
+[21/01/24, 10:21:52 PM] Harshita Arohan: Areeee mera bol re
+[21/01/24, 10:22:04 PM] Asutosh Kiit: Gargi ka confirm nahi hai...
+Jayegi ki nahi
+[21/01/24, 10:22:15 PM] Asutosh Kiit: Uska ticket ho gya hai
+[21/01/24, 10:22:16 PM] Harshita Arohan: Ruko hm batate h
+[21/01/24, 10:22:23 PM] Asutosh Kiit: Haan
+[21/01/24, 10:23:37 PM] Harshita Arohan: Tmlog ka confirm ho gya h na ticket?
+[21/01/24, 10:23:45 PM] Asutosh Kiit: Haan
+[21/01/24, 10:23:52 PM] Asutosh Kiit: tumhara abhi karna hai
+[21/01/24, 10:23:56 PM] Harshita Arohan: Tb toh mera no issue😂
+[21/01/24, 10:23:59 PM] Asutosh Kiit: kar du
+[21/01/24, 10:24:00 PM] Asutosh Kiit: ?
+[21/01/24, 10:24:02 PM] Harshita Arohan: Hm aaise hi baith ke bhi aa jayenge
+[21/01/24, 10:24:03 PM] Asutosh Kiit: kahe
+[21/01/24, 10:24:04 PM] Asutosh Kiit: kaise
+[21/01/24, 10:24:09 PM] Asutosh Kiit: areyyyy
+[21/01/24, 10:25:34 PM] Asutosh Kiit: woh toh last option
+[21/01/24, 10:25:49 PM] Asutosh Kiit: mai kya bol rha tha..... aane ka 5 hai waiting list
+[21/01/24, 10:25:52 PM] Asutosh Kiit: kar dete hai abhi
+[21/01/24, 10:26:03 PM] Asutosh Kiit: papa se bolke karwa doge confirm???
+[21/01/24, 10:28:42 PM] Harshita Arohan: Haa haa kr do
+[21/01/24, 10:30:55 PM] Asutosh Kiit: okay
+‎[21/01/24, 10:37:29 PM] Asutosh Kiit: 2755898278.pdf • ‎3 pages ‎document omitted
+[21/01/24, 10:38:20 PM] Asutosh Kiit: Gargi ke papa ko bhi bole hai karane confirm
+[21/01/24, 10:38:40 PM] Asutosh Kiit: but tum bhi bol dena uncle ko...
+[21/01/24, 10:49:56 PM] Harshita Arohan: Okay okay
+[21/01/24, 10:50:22 PM] Harshita Arohan: Yaha se jaane wala bhi kr dena
+[21/01/24, 10:55:55 PM] Asutosh Kiit: woh tatkal karenge
+[21/01/24, 10:55:58 PM] Asutosh Kiit: Thursday ko
+[21/01/24, 10:56:08 PM] Harshita Arohan: Accha okay
+[21/01/24, 10:56:13 PM] Asutosh Kiit: abhi yeh krke no fayeda... 66 hai and confirm nahi hota
+[21/01/24, 10:56:18 PM] Asutosh Kiit: spring fest ke time
+[21/01/24, 10:56:31 PM] Harshita Arohan: Theek h tmko toh zyda idea h. Dekh lena
+[21/01/24, 10:56:35 PM] Harshita Arohan: Thank you so much yaar…
+[21/01/24, 10:56:42 PM] Asutosh Kiit: hihihi hahaha huhuhuh
+[21/01/24, 10:56:53 PM] Harshita Arohan: Aur woh accommodation wala kb kaise krna h bata dena
+[21/01/24, 10:56:55 PM] Asutosh Kiit: accommodation ka pay mt kariyo
+[21/01/24, 10:57:07 PM] Asutosh Kiit: abhi
+[21/01/24, 10:57:13 PM] Harshita Arohan: Theek h
+[22/01/24, 10:02:29 PM] Harshita Arohan: Asutosh. Sorry but mera train ticket cancel kr dena. And jitna cancellation fees hoga let me know I’ll pay you. So sorry for all the confusion and chaos.
+[22/01/24, 10:02:52 PM] Asutosh Kiit: Hein
+[22/01/24, 10:02:53 PM] Asutosh Kiit: Kya hua
+[22/01/24, 10:02:55 PM] Asutosh Kiit: Achanak
+[22/01/24, 10:02:56 PM] Asutosh Kiit: 👀
+[22/01/24, 10:03:34 PM] Harshita Arohan: Parents utne interested ny lge toh unhe utna bolna ny chahte
+[22/01/24, 10:06:40 PM] Asutosh Kiit: Achaaa
+[22/01/24, 10:06:44 PM] Asutosh Kiit: 👀🥲
+[22/01/24, 10:06:53 PM] Harshita Arohan: Sorry yaar
+[22/01/24, 10:13:05 PM] Asutosh Kiit: Pakka?
+[22/01/24, 10:13:15 PM] Harshita Arohan: Haan pakka
+[22/01/24, 11:14:09 PM] Asutosh Kiit: Kar du?
+[22/01/24, 11:14:10 PM] Asutosh Kiit: Cancel
+[22/01/24, 11:14:11 PM] Asutosh Kiit: ?
+[22/01/24, 11:14:14 PM] Asutosh Kiit: 👀
+[22/01/24, 11:14:27 PM] Harshita Arohan: Haa kr do🫠
+[22/01/24, 11:14:31 PM] Asutosh Kiit: U sure??? Firse baat kro na
+[22/01/24, 11:14:32 PM] Asutosh Kiit: 🥲
+[22/01/24, 11:15:39 PM] Harshita Arohan: Haa yaar. Try kiya but fyda ny.
+[22/01/24, 11:16:58 PM] Asutosh Kiit: Okay
+[22/01/24, 11:21:46 PM] Asutosh Kiit: 643 hua tha
+Refund amount 555
+[22/01/24, 11:23:05 PM] Harshita Arohan: Thank you Asutosh
+[22/01/24, 11:23:09 PM] Asutosh Kiit: 🥲
+[22/01/24, 11:23:35 PM] Harshita Arohan: Paise aa gye na?
+[22/01/24, 11:38:13 PM] Asutosh Kiit: Aa jayega
+[22/01/24, 11:38:15 PM] Asutosh Kiit: 3 days
+[22/01/24, 11:38:19 PM] Asutosh Kiit: Ke andr
+[22/01/24, 11:38:28 PM] Asutosh Kiit: Haan woh 88 aa gaya
+[22/01/24, 11:39:48 PM] Harshita Arohan: Okay okay.🫂
+‎[22/01/24, 11:54:36 PM] Harshita Arohan: ‎image omitted
+‎[22/01/24, 11:54:37 PM] Harshita Arohan: ‎image omitted
+‎[22/01/24, 11:54:37 PM] Harshita Arohan: ‎image omitted
+‎[22/01/24, 11:54:38 PM] Harshita Arohan: ‎image omitted
+‎[22/01/24, 11:54:38 PM] Harshita Arohan: ‎image omitted
+‎[22/01/24, 11:54:39 PM] Harshita Arohan: ‎image omitted
+‎[22/01/24, 11:54:39 PM] Harshita Arohan: ‎image omitted
+‎[22/01/24, 11:54:40 PM] Harshita Arohan: ‎image omitted
+‎[22/01/24, 11:54:40 PM] Harshita Arohan: ‎image omitted
+[23/01/24, 1:55:06 AM] Asutosh Kiit: Ayeeee
+[23/01/24, 7:20:37 AM] Harshita Arohan: Hnji
+[23/01/24, 6:32:53 PM] Asutosh Kiit: Hello
+[23/01/24, 6:32:56 PM] Asutosh Kiit: Guruji
+[23/01/24, 6:32:59 PM] Asutosh Kiit: Kya decide hua
+[23/01/24, 6:33:01 PM] Asutosh Kiit: Chalo na
+[23/01/24, 6:33:05 PM] Asutosh Kiit: 😑
+[23/01/24, 6:59:42 PM] Harshita Arohan: 😶😶😶
+[23/01/24, 8:16:57 PM] Asutosh Kiit: kaa hua
+[23/01/24, 8:41:39 PM] Harshita Arohan: Kuch ny
+[23/01/24, 8:42:40 PM] Asutosh Kiit: chal rhe ho na
+[23/01/24, 8:44:49 PM] Harshita Arohan: Ny🙃
+[23/01/24, 8:46:18 PM] Asutosh Kiit: 🙂
+[09/02/24, 6:39:12 PM] Asutosh Kiit: Subah ka dosa
+Rishikesh ko bhej dena
+[09/02/24, 6:39:13 PM] Asutosh Kiit: 70
+[09/02/24, 6:39:25 PM] Asutosh Kiit: Woh de diya hai tumhara
+[09/02/24, 6:53:05 PM] Harshita Arohan: Okay
+[09/02/24, 8:07:43 PM] Harshita Arohan: Asutosh petrol ka kitna bheje?
+[09/02/24, 8:11:36 PM] Asutosh Kiit: Kya🤣
+[09/02/24, 8:11:41 PM] Asutosh Kiit: Konsa petrol bhai
+[09/02/24, 8:11:42 PM] Asutosh Kiit: 🤣
+[09/02/24, 8:11:44 PM] Asutosh Kiit: Vakk
+[09/02/24, 8:13:08 PM] Harshita Arohan: Areee
+‎[09/02/24, 8:14:02 PM] Asutosh Kiit: ‎sticker omitted
+‎[09/02/24, 8:14:23 PM] Harshita Arohan: ‎sticker omitted
+[14/02/24, 10:48:20 PM] Asutosh Kiit: https://photos.app.goo.gl/Gc9S3MXypTZudcJ88
+[14/02/24, 10:48:23 PM] Asutosh Kiit: Join
+[14/02/24, 10:48:24 PM] Asutosh Kiit: Karo
+[14/02/24, 10:48:31 PM] Asutosh Kiit: And upload kar do saare photos
+[14/02/24, 10:48:32 PM] Asutosh Kiit: Usme
+[14/02/24, 11:01:32 PM] Harshita Arohan: Okay jii
+‎[15/02/24, 11:20:38 AM] Asutosh Kiit: ‎image omitted
+‎[15/02/24, 11:24:11 AM] Asutosh Kiit: Aadhar pdf (mom).pdf • ‎2 pages ‎document omitted
+‎[15/02/24, 11:25:29 AM] Asutosh Kiit: ‎Contact card omitted
+[15/02/24, 11:37:58 AM] Asutosh Kiit: ହନୁମାନ ମନ୍ଦିର ନିକଟରେ, 32, ମାନା ଭିଲ୍ଲା, ମ୍ୟୁନିସିପାଲିଟି କଲୋନୀ, କଟକ, ଓଡିଶା 753003
+[15/02/24, 11:39:11 AM] Harshita Arohan: Thank you Asutosh😍
+‎[15/02/24, 11:45:17 AM] Harshita Arohan: ‎image omitted
+[15/02/24, 11:45:37 AM] Asutosh Kiit: Aee ladki aae
+[15/02/24, 11:45:51 AM] Harshita Arohan: Kya hua
+[15/02/24, 12:03:05 PM] Harshita Arohan: ‎You deleted this message.
+‎[15/02/24, 12:05:51 PM] Harshita Arohan: ‎image omitted
+‎[15/02/24, 12:08:11 PM] Asutosh Kiit: Adobe Scan Feb 15, 2024.pdf • ‎2 pages ‎document omitted
+[19/02/24, 10:04:30 AM] Asutosh Kiit: https://play.google.com/store/apps/details?id=com.Splitwise.SplitwiseMobile
+[17/03/24, 10:32:34 PM] Harshita Arohan: Brooo. Aaj wale group pictures send kro naa please
+[17/03/24, 11:37:50 PM] Asutosh Kiit: Haan
